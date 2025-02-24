@@ -1,13 +1,18 @@
 export default function List() {
-    return (
-      <div>
-       <h3 className="title">상품목록</h3>
-       <div className="food">
-        <h4>상품1 $40</h4>
-       </div>
-       <div className="food">
-        <h4>상품2 $30</h4>
-       </div>
-      </div>
-    )
-  }
+  let item = ["Tomatoes", "Pasta", "Coconut"];
+  return (
+    <div>
+      <h3 className="title">상품목록</h3>
+      {
+       item.map((a, i) => { // map함수를 이용한 html 반복
+        return (
+          <div className="food" key={i}> // key추가 권장
+            <img src={`/food${i}.png`} className="food-img" />
+            <h4>{a} $40</h4>
+          </div>
+        )
+       })
+      }
+    </div>
+  )
+}
